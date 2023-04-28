@@ -12,5 +12,12 @@ script:
 after_sucess:
   - docker build -t roshin1996/multi-client ./client
   - docker build -t roshin1996/multi-nginx ./niginx
-  - docker build -t roshin1996/multi-servier ./server
+  - docker build -t roshin1996/multi-server ./server
   - docker build -t roshin1996/multi-worker ./worker
+  # Log in to docker CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-standardin
+  # Push images to docker hub
+  - docker push roshin1996/multi-client
+  - docker push roshin1996/multi-nginx
+  - docker push roshin1996/multi-server
+  - docker push roshin1996/multi-worker
