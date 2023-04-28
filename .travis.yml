@@ -1,0 +1,16 @@
+sudo: required
+language: generic
+services:
+  - docker
+
+before_install:
+  - docker build -t roshin1996/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run -e CI=true roshin1996/react-test npm test
+
+after_sucess:
+  - docker build -t roshin1996/multi-client ./client
+  - docker build -t roshin1996/multi-nginx ./niginx
+  - docker build -t roshin1996/multi-servier ./server
+  - docker build -t roshin1996/multi-worker ./worker
