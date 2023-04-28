@@ -11,7 +11,7 @@ script:
 
 after_sucess:
   - docker build -t roshin1996/multi-client ./client
-  - docker build -t roshin1996/multi-nginx ./niginx
+  - docker build -t roshin1996/multi-nginx ./nginx
   - docker build -t roshin1996/multi-server ./server
   - docker build -t roshin1996/multi-worker ./worker
   # Log in to docker CLI
