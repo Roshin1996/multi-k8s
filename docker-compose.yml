@@ -24,7 +24,7 @@ services:
       - REDIS_HOST=$REDIS_HOST
       - REDIS_PORT=$REDIS_PORT
   nginx:
-    image: "roshin1996/multi-nginx",
+    image: "roshin1996/multi-nginx"
     mem_limit: 128m
     hostname: nginx
     ports:
